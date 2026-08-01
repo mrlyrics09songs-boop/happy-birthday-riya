@@ -4,11 +4,13 @@ const pages = document.querySelectorAll(".page");
 
 function showPage(pageId){
 
-    pages.forEach(page=>{
-        page.classList.remove("active");
+    document.querySelectorAll(".page").forEach(page=>{
+        page.style.display="none";
     });
 
-    document.getElementById(pageId).classList.add("active");
+    const next=document.getElementById(pageId);
+
+    next.style.display="flex";
 
     window.scrollTo({
         top:0,
@@ -20,7 +22,6 @@ function showPage(pageId){
     }
 
 }
-
 // ---------------- LETTER ----------------
 
 const letterMessage=`Dear Janvii ❤️
@@ -110,10 +111,10 @@ function checkAnswer(){
 // ---------------- MEMORY BOX ----------------
 
 const memoryImages=[
-"cat1.jpg",
-"cat2.jpg",
-"cat3.jpg",
-"cat4.jpg"
+"cat1.jpg.JPG",
+"cat2.jpg.JPG",
+"cat3.jpg.JPG",
+"cat4.jpg.JPG"
 ];
 
 const memoryTexts=[
