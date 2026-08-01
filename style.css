@@ -54,15 +54,14 @@ p{
 }
 
 .photo{
-    width:180px;
-    height:230px;
+    width:260px;
+    height:320px;
     object-fit:cover;
     object-position:center;
     display:block;
     margin:20px auto;
     border-radius:20px;
     border:4px solid white;
-    box-shadow:0 10px 25px rgba(255,105,180,.35);
 }
 
 button{
@@ -216,10 +215,9 @@ opacity:0;
 }
 
 .photo{
-    width: 280px;
-    height: 280px;
-    object-fit: cover;
-    border-radius: 20px; /* ya 50% agar gol photo chahiye */
+    width:250px;
+    height:310px;
+    object-fit:cover;
 }
 .memory-photo{
     width:220px;
