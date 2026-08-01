@@ -210,9 +210,9 @@ opacity:0;
 }
 
 .photo{
-    width:250px;
-    height:310px;
-    object-fit:cover;
+    width: 300px;
+    height: 300px;
+    object-fit: cover;
 }
 .memory-photo{
     width:220px;
