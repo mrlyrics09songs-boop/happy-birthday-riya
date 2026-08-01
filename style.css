@@ -1,54 +1,124 @@
-body{
+*{
     margin:0;
     padding:0;
-    font-family:Arial, sans-serif;
-    background:linear-gradient(135deg,#ff9ec4,#ffd6e7);
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
+
+body{
     display:flex;
     justify-content:center;
     align-items:center;
     min-height:100vh;
+    background:linear-gradient(135deg,#ff9ec4,#ffd6e7,#ffeef7);
+    overflow:hidden;
+}
+
+/* Floating Hearts */
+.hearts{
+    position:fixed;
+    width:100%;
+    height:100%;
+    top:0;
+    left:0;
+    pointer-events:none;
+}
+
+.hearts span{
+    position:absolute;
+    bottom:-50px;
+    font-size:25px;
+    animation:float 12s linear infinite;
+}
+
+.hearts span:nth-child(1){left:10%;animation-delay:0s;}
+.hearts span:nth-child(2){left:30%;animation-delay:2s;}
+.hearts span:nth-child(3){left:50%;animation-delay:4s;}
+.hearts span:nth-child(4){left:70%;animation-delay:6s;}
+.hearts span:nth-child(5){left:90%;animation-delay:8s;}
+
+@keyframes float{
+    0%{
+        transform:translateY(0) rotate(0deg);
+        opacity:0;
+    }
+    20%{
+        opacity:1;
+    }
+    100%{
+        transform:translateY(-110vh) rotate(360deg);
+        opacity:0;
+    }
 }
 
 .card{
     width:90%;
-    max-width:350px;
-    background:#fff;
-    border-radius:20px;
-    padding:20px;
+    max-width:360px;
+    padding:25px;
+    border-radius:25px;
     text-align:center;
-    box-shadow:0 10px 25px rgba(0,0,0,0.2);
-}
-
-.card img{
-    width:150px;
-    height:auto;
-    display:block;
-    margin:0 auto;
+    background:rgba(255,255,255,.25);
+    backdrop-filter:blur(12px);
+    box-shadow:0 10px 30px rgba(0,0,0,.2);
+    animation:fadeIn 1s ease;
 }
 
 h1{
-    color:#ff4081;
+    color:#ff2d75;
     margin-bottom:10px;
 }
 
-p{
-    color:#555;
+h2{
+    color:#d81b60;
+    margin-bottom:15px;
+}
+
+.photo{
+    width:170px;
+    height:170px;
+    border-radius:50%;
+    object-fit:cover;
+    border:5px solid white;
+    box-shadow:0 0 25px rgba(255,105,180,.6);
+    transition:.4s;
+    margin:15px auto;
+    display:block;
+}
+
+.photo:hover{
+    transform:scale(1.08);
+}
+
+.quote{
+    color:#444;
     font-size:16px;
     line-height:1.6;
+    margin:20px 0;
 }
 
 button{
-    background:#ff4081;
-    color:#fff;
+    background:#ff2d75;
+    color:white;
     border:none;
-    padding:12px 25px;
+    padding:12px 28px;
     border-radius:30px;
-    font-size:16px;
     cursor:pointer;
-    transition:0.3s;
+    font-size:16px;
+    transition:.3s;
 }
 
 button:hover{
+    transform:scale(1.08);
     background:#e91e63;
-    transform:scale(1.05);
+}
+
+@keyframes fadeIn{
+    from{
+        opacity:0;
+        transform:translateY(30px);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
 }
