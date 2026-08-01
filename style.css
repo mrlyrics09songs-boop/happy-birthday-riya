@@ -182,3 +182,54 @@ button:hover{
         transform:translateY(0);
     }
 }
+/* ===== Memory Box ===== */
+
+.memory{
+    margin-top:25px;
+    background:rgba(255,255,255,0.9);
+    padding:20px;
+    border-radius:20px;
+    box-shadow:0 10px 25px rgba(255,105,180,.25);
+    animation:fadeIn .8s ease;
+}
+
+.memory h2{
+    color:#ff2d75;
+    margin-bottom:10px;
+}
+
+.memory p{
+    color:#555;
+    line-height:1.6;
+}
+
+.memory-photo{
+    width:100%;
+    max-width:260px;
+    display:block;
+    margin:20px auto;
+    border-radius:18px;
+    border:4px solid white;
+    box-shadow:0 10px 25px rgba(0,0,0,.15);
+    transition:.4s;
+}
+
+.memory-photo:hover{
+    transform:scale(1.05);
+}
+
+#memoryBox{
+    margin-top:20px;
+    animation:fadeIn .8s ease;
+}
+
+#catText{
+    font-size:17px;
+    color:#d81b60;
+    font-weight:600;
+    margin:15px 0;
+}
+
+.memory button{
+    margin-top:10px;
+}
