@@ -45,31 +45,26 @@ and making beautiful memories forever. 🤍`;
 
 function typeLetter(){
 
-    const box=document.getElementById("letterText");
+    const box = document.getElementById("letterText");
 
     if(!box) return;
 
-    box.innerHTML="";
+    box.innerHTML = "";
+    let i = 0;
 
-    let i=0;
+    const timer = setInterval(() => {
 
-    const timer=setInterval(()=>{
-
-        if(i<letterMessage.length){
-
-            if(letterMessage[i]=="\n"){
-                box.innerHTML+="<br>";
-            }else{
-                box.innerHTML+=letterMessage[i];
-            }
-
-            i++;
-
-        }else{
-
+        if(i >= letterMessage.length){
             clearInterval(timer);
-
+            return;
         }
+
+        box.textContent += letterMessage.charAt(i);
+        i++;
+
+    },30);
+
+}
 
     },30);
 
