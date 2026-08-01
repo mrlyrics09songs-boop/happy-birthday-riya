@@ -50,15 +50,16 @@ p{
     margin:15px 0;
 }
 
-.photo{
-    width:220px;
-    height:300px;
+.memory-photo{
+    width:260px;
+    height:260px;
     object-fit:cover;
-    border-radius:20px;
+    object-position:center;
     display:block;
     margin:20px auto;
-    border:5px solid white;
-    box-shadow:0 10px 20px rgba(255,105,180,.3);
+    border-radius:20px;
+    border:4px solid #fff;
+    box-shadow:0 10px 25px rgba(0,0,0,.18);
 }
 
 button{
