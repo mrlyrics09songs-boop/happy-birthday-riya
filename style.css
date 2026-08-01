@@ -20,12 +20,10 @@ body{
 }
 
 .card img{
-    width:80%;
-    height:250px;
-    object-fit:cover;
+    width:150px;
+    height:auto;
     display:block;
-    margin:0 auto 15px;
-    border-radius:15px;
+    margin:0 auto;
 }
 
 h1{
