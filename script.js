@@ -93,12 +93,11 @@ function heartRain() {
 =========================== */
 
 const memoryImages = [
-    "cat1.jpg",
-    "cat2.jpg",
-    "cat3.jpg",
-    "cat4.jpg"
+    "cat1.jpg.JPG",
+    "cat2.jpg.JPG",
+    "cat3.jpg.JPG",
+    "cat4.jpg.JPG"
 ];
-
 const memoryTexts = [
     "🥹 Me waiting for your reply be like...",
     "😭 Finally notification aayi!!",
