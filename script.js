@@ -1,15 +1,21 @@
 function showPage(pageId){
 
-    document.querySelectorAll(".page").forEach(page=>{
+    const pages = document.querySelectorAll(".page");
+
+    pages.forEach(page=>{
+        page.style.opacity="0";
+        page.style.transform="translateX(60px)";
         page.style.display="none";
     });
 
-    document.getElementById(pageId).style.display="flex";
+    const next = document.getElementById(pageId);
 
-    window.scrollTo({
-        top:0,
-        behavior:"smooth"
-    });
+    next.style.display="flex";
+
+    setTimeout(()=>{
+        next.style.opacity="1";
+        next.style.transform="translateX(0)";
+    },50);
 
 }
 
