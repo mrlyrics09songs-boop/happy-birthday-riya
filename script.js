@@ -1,158 +1,172 @@
-function openLetter() {
-    const letter = document.getElementById("letter");
+function showPage(pageId){
 
-    if (letter.style.display === "block") {
-        letter.style.display = "none";
-    } else {
-        letter.style.display = "block";
+    document.querySelectorAll(".page").forEach(page=>{
+        page.style.display="none";
+    });
 
-        setTimeout(() => {
-            letter.scrollIntoView({
-                behavior: "smooth"
-            });
-        }, 200);
-    }
+    document.getElementById(pageId).style.display="flex";
+
+    window.scrollTo({
+        top:0,
+        behavior:"smooth"
+    });
+
 }
 
-let attempts = 0;
+let attempts=0;
 
-function checkAnswer() {
+function checkAnswer(){
 
-    const answer = document.getElementById("answer").value.trim().toLowerCase();
-    const secret = document.getElementById("secret");
+    const ans=document.getElementById("answer").value.trim().toLowerCase();
 
-    if (answer === "janvii" || answer === "janvi") {
+    if(ans==="janvii" || ans==="janvi"){
 
-        secret.style.display = "block";
+        document.getElementById("secret").style.display="block";
+
+        document.getElementById("memorySection").style.display="block";
 
         heartRain();
 
-        setTimeout(() => {
-            alert("🏆 Achievement Unlocked!\n\nOfficially My Favourite Friend ❤️");
-        }, 500);
-
-        // Memory Box tak auto scroll
-        setTimeout(() => {
-            const memory = document.querySelector(".memory");
-            if (memory) {
-                memory.scrollIntoView({
-                    behavior: "smooth"
-                });
-            }
-        }, 1200);
-
-    } else {
+    }else{
 
         attempts++;
 
-        if (attempts === 1) {
-            alert("❌ Oops! Galat answer.\n\n💡 Hint: Naam 'J' se start hota hai. 😜");
-        } else if (attempts === 2) {
-            alert("😂 Arre yaar... Itna bhi mushkil nahi hai!\n\n💡 Hint: 7 letters ka naam hai. 😉");
-        } else {
-            alert("🤣 Last Hint!\n\nApna naam try karo. ❤️");
+        if(attempts==1){
+
+            alert("❌ Wrong!\n\nHint: Naam J se start hota hai 😜");
+
+        }else if(attempts==2){
+
+            alert("😂 Arre yaar...\n\nHint: Apna naam try karo ❤️");
+
+        }else{
+
+            alert("🤣 Last Hint!\n\nBest Friend = Janvii ❤️");
+
         }
 
     }
 
 }
 
-function heartRain() {
+const memoryImages=[
+"cat1.jpg.JPG",
+"cat2.jpg.JPG",
+"cat3.jpg.JPG",
+"cat4.jpg.JPG"
+];
 
-    for (let i = 0; i < 50; i++) {
+const memoryTexts=[
+"🥹 Me waiting for your reply be like...",
+"😭 Finally notification aayi!!",
+"😂 POV: Jab tum sirf 'hmm' reply karti ho.",
+"🏆 Official Best Friend Detected ❤️"
+];
 
-        const heart = document.createElement("div");
+let current=0;
 
-        heart.innerHTML = "💖";
+function openMemoryBox(){
 
-        heart.style.position = "fixed";
-        heart.style.left = Math.random() * 100 + "vw";
-        heart.style.top = "-40px";
-        heart.style.fontSize = (20 + Math.random() * 20) + "px";
-        heart.style.zIndex = "9999";
-        heart.style.pointerEvents = "none";
-        heart.style.transition = "transform 5s linear, opacity 5s";
+    document.getElementById("memoryBox").style.display="block";
 
-        document.body.appendChild(heart);
+    current=0;
 
-        setTimeout(() => {
-            heart.style.transform = "translateY(110vh)";
-            heart.style.opacity = "0";
-        }, 50);
+    document.getElementById("catImg").src=memoryImages[0];
 
-        setTimeout(() => {
-            heart.remove();
-        }, 5000);
+    document.getElementById("catText").innerHTML=memoryTexts[0];
+
+}
+
+function nextMemory(){
+
+    current++;
+
+    if(current<memoryImages.length){
+
+        document.getElementById("catImg").src=memoryImages[current];
+
+        document.getElementById("catText").innerHTML=memoryTexts[current];
+
+    }else{
+
+        document.querySelector(".card").innerHTML=`
+
+<h1>🏆 Friendship Verified ❤️</h1>
+
+<h2>Congratulations Janvii 🎉</h2>
+
+<p>
+
+You have successfully completed
+
+the Friendship Challenge 💖
+
+<br><br>
+
+🍫 Unlimited Chocolates
+
+<br>
+
+🤗 Unlimited Hugs
+
+<br>
+
+😂 Lifetime Permission To Irritate Me
+
+<br><br>
+
+Thank You For Being The Best Friend Ever ❤️
+
+</p>
+
+<button onclick="heartRain()">
+
+💖 Celebrate Again
+
+</button>
+
+`;
+
+        heartRain();
 
     }
 
 }
 
-/* ===========================
-   MEMORY BOX
-=========================== */
+function heartRain(){
 
-const memoryImages = [
-    "cat1.jpg.JPG",
-    "cat2.jpg.JPG",
-    "cat3.jpg.JPG",
-    "cat4.jpg.JPG"
-];
-const memoryTexts = [
-    "🥹 Me waiting for your reply be like...",
-    "😭 Finally notification aayi!!",
-    "😂 POV: Jab tum sirf 'hmm' reply karti ho.",
-    "🏆 Official Best Friend Detected ❤️"
-];
+    for(let i=0;i<40;i++){
 
-let currentMemory = 0;
+        const heart=document.createElement("div");
 
-function openMemoryBox() {
+        heart.innerHTML="💖";
 
-    const box = document.getElementById("memoryBox");
+        heart.style.position="fixed";
 
-    box.style.display = "block";
+        heart.style.left=Math.random()*100+"vw";
 
-    currentMemory = 0;
+        heart.style.top="-40px";
 
-    document.getElementById("catImg").src = memoryImages[0];
-    document.getElementById("catText").innerHTML = memoryTexts[0];
+        heart.style.fontSize=(20+Math.random()*20)+"px";
 
-}
+        heart.style.zIndex="9999";
 
-function nextMemory() {
+        heart.style.transition="5s linear";
 
-    currentMemory++;
+        document.body.appendChild(heart);
 
-    if (currentMemory < memoryImages.length) {
+        setTimeout(()=>{
 
-        document.getElementById("catImg").src = memoryImages[currentMemory];
-        document.getElementById("catText").innerHTML = memoryTexts[currentMemory];
+            heart.style.transform="translateY(110vh)";
+            heart.style.opacity="0";
 
-    } else {
+        },100);
 
-        document.getElementById("memoryBox").innerHTML = `
-            <h2>🏆 Friendship Verified ❤️</h2>
+        setTimeout(()=>{
 
-            <h3>██████████ 100%</h3>
+            heart.remove();
 
-            <p>
-                🎉 Congratulations Janvii!<br><br>
-
-                You are officially promoted to<br>
-                <b>Best Friend Forever ❤️</b><br><br>
-
-                🍫 Unlimited Virtual Chocolates<br>
-                🤗 Unlimited Hugs<br>
-                😂 Lifetime Permission To Irritate Me
-            </p>
-
-            <button onclick="heartRain()">
-                💖 Celebrate Again
-            </button>
-        `;
-
-        heartRain();
+        },5000);
 
     }
 
