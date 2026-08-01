@@ -226,11 +226,11 @@ function playVoice(){
 
     audio.play();
 
-    audio.onended=function(){
+ audio.onended=function(){
 
-        showEnding();
+    showPage("page5");
 
-    };
+};
 
 }
 
@@ -303,10 +303,3 @@ Warna ye voice note lifetime evidence banke rahega. 😂💖
     heartRain();
 
 }
-console.log("Script Loaded");
-const voice = document.getElementById("voice");
-
-voice.onended = function () {
-    closeWarning();      // Warning popup band hoga
-    showPage("page5");   // Naya surprise page open hoga
-};
