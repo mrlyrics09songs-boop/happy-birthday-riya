@@ -286,12 +286,17 @@ alt="Funny Photo">
 
 <br><br>
 
-<button onclick="deletePhoto()">
-🗑️ Delete Photo
-</button>
+function deletePhoto(){
 
-<button onclick="nextPhoto()">
-👉 Agli Photo
+    document.getElementById("deleteMsg").innerHTML =
+    "❌ Permission Denied!<br><br>Ye bhi meri favourite memory hai. 😂❤️";
+
+    document.getElementById("nextBtn").style.display = "inline-block";
+
+}
+
+<button id="nextBtn" onclick="nextPhoto()" style="display:none;">
+❤️ Reality Dekho
 </button>
 
 <p id="deleteMsg"></p>
