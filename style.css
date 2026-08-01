@@ -216,9 +216,10 @@ opacity:0;
 }
 
 .photo{
-    width: 200px;
-    height: 200px;
+    width: 280px;
+    height: 280px;
     object-fit: cover;
+    border-radius: 20px; /* ya 50% agar gol photo chahiye */
 }
 .memory-photo{
     width:220px;
