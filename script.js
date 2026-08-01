@@ -1,16 +1,14 @@
-// ---------------- PAGE CHANGE ----------------
-
-const pages = document.querySelectorAll(".page");
+// ================= PAGE CHANGE =================
 
 function showPage(pageId){
 
     document.querySelectorAll(".page").forEach(page=>{
-        page.style.display="none";
+        page.classList.remove("active");
     });
 
-    const next=document.getElementById(pageId);
+    const page=document.getElementById(pageId);
 
-    next.style.display="flex";
+    page.classList.add("active");
 
     window.scrollTo({
         top:0,
@@ -18,13 +16,14 @@ function showPage(pageId){
     });
 
     if(pageId==="page2"){
-        typeLetter();
+        startLetter();
     }
 
 }
-// ---------------- LETTER ----------------
 
-const letterMessage=`Dear Janvii ❤️
+// ================= LETTER =================
+
+const letter=`Dear Janvii ❤️
 
 Happy Friendship Day 🌸
 
@@ -42,15 +41,15 @@ Laughing...
 Fighting...
 Annoying each other...
 
-and making beautiful memories forever. 🤍`;
+Making beautiful memories forever. 🤍`;
 
-let typed=false;
+let started=false;
 
-function typeLetter(){
+function startLetter(){
 
-    if(typed) return;
+    if(started) return;
 
-    typed=true;
+    started=true;
 
     const box=document.getElementById("letterText");
 
@@ -58,26 +57,33 @@ function typeLetter(){
 
     box.innerHTML="";
 
-    const timer=setInterval(()=>{
+    const typing=setInterval(()=>{
 
-        if(i>=letterMessage.length){
-            clearInterval(timer);
+        if(i>=letter.length){
+
+            clearInterval(typing);
+
             return;
+
         }
 
-        if(letterMessage.charAt(i)==="\n"){
+        if(letter.charAt(i)==="\n"){
+
             box.innerHTML+="<br>";
+
         }else{
-            box.innerHTML+=letterMessage.charAt(i);
+
+            box.innerHTML+=letter.charAt(i);
+
         }
 
         i++;
 
-    },30);
+    },25);
 
 }
 
-// ---------------- SECRET GAME ----------------
+// ================= SECRET GAME =================
 
 let attempts=0;
 
@@ -98,53 +104,59 @@ function checkAnswer(){
         attempts++;
 
         if(attempts===1){
+
             alert("❌ Hint: Naam J se start hota hai 😜");
+
         }else if(attempts===2){
+
             alert("😂 Hint: Apna naam try karo ❤️");
+
         }else{
+
             alert("🤣 Best Friend = Janvii ❤️");
+
         }
 
     }
 
 }
-// ---------------- MEMORY BOX ----------------
+// ================= MEMORY BOX =================
 
-const memoryImages=[
-"cat1.jpg.JPG",
-"cat2.jpg.JPG",
-"cat3.jpg.JPG",
-"cat4.jpg.JPG"
+const memoryImages = [
+    "cat1.jpg.JPG",
+    "cat2.jpg.JPG",
+    "cat3.jpg.JPG",
+    "cat4.jpg.JPG"
 ];
 
-const memoryTexts=[
-"🥹 Me waiting for your reply be like...",
-"😭 Finally notification aayi!!",
-"😂 POV: Jab tum sirf 'hmm' reply karti ho.",
-"🏆 Official Best Friend Detected ❤️"
+const memoryTexts = [
+    "🥹 Me waiting for your reply be like...",
+    "😭 Finally notification aayi!!",
+    "😂 POV: Jab tum sirf 'hmm' reply karti ho.",
+    "🏆 Official Best Friend Detected ❤️"
 ];
 
-let currentMemory=0;
+let current = 0;
 
 function openMemoryBox(){
 
-    document.getElementById("memoryBox").style.display="block";
+    document.getElementById("memoryBox").style.display = "block";
 
-    currentMemory=0;
+    current = 0;
 
-    document.getElementById("catImg").src=memoryImages[currentMemory];
-    document.getElementById("catText").innerHTML=memoryTexts[currentMemory];
+    document.getElementById("catImg").src = memoryImages[current];
+    document.getElementById("catText").innerHTML = memoryTexts[current];
 
 }
 
 function nextMemory(){
 
-    currentMemory++;
+    current++;
 
-    if(currentMemory < memoryImages.length){
+    if(current < memoryImages.length){
 
-        document.getElementById("catImg").src=memoryImages[currentMemory];
-        document.getElementById("catText").innerHTML=memoryTexts[currentMemory];
+        document.getElementById("catImg").src = memoryImages[current];
+        document.getElementById("catText").innerHTML = memoryTexts[current];
 
     }else{
 
@@ -156,30 +168,30 @@ function nextMemory(){
 
 }
 
-// ---------------- HEART RAIN ----------------
+// ================= HEART RAIN =================
 
 function heartRain(){
 
     for(let i=0;i<40;i++){
 
-        const heart=document.createElement("div");
+        const heart = document.createElement("div");
 
-        heart.innerHTML="💖";
+        heart.innerHTML = "💖";
 
-        heart.style.position="fixed";
-        heart.style.left=Math.random()*100+"vw";
-        heart.style.top="-40px";
-        heart.style.fontSize=(18+Math.random()*20)+"px";
-        heart.style.zIndex="9999";
-        heart.style.pointerEvents="none";
-        heart.style.transition="transform 5s linear, opacity 5s";
+        heart.style.position = "fixed";
+        heart.style.left = Math.random()*100 + "vw";
+        heart.style.top = "-40px";
+        heart.style.fontSize = (18 + Math.random()*20) + "px";
+        heart.style.pointerEvents = "none";
+        heart.style.zIndex = "9999";
+        heart.style.transition = "transform 5s linear, opacity 5s";
 
         document.body.appendChild(heart);
 
         setTimeout(()=>{
 
-            heart.style.transform="translateY(110vh)";
-            heart.style.opacity="0";
+            heart.style.transform = "translateY(110vh)";
+            heart.style.opacity = "0";
 
         },50);
 
