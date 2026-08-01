@@ -413,3 +413,4 @@ function nextPhoto(){
     },250);
 
 }
+console.log("Script Loaded Successfully");
