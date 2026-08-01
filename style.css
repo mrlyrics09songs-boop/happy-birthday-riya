@@ -248,3 +248,10 @@ width:100%;
 }
 
 }
+#letterText{
+    min-height:260px;
+    text-align:left;
+    line-height:1.8;
+    white-space:pre-line;
+    color:#555;
+}
