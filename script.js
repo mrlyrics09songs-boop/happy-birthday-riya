@@ -304,3 +304,9 @@ Warna ye voice note lifetime evidence banke rahega. 😂💖
 
 }
 console.log("Script Loaded");
+const voice = document.getElementById("voice");
+
+voice.onended = function () {
+    closeWarning();      // Warning popup band hoga
+    showPage("page5");   // Naya surprise page open hoga
+};
