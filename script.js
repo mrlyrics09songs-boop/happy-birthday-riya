@@ -303,3 +303,60 @@ Warna ye voice note lifetime evidence banke rahega. 😂💖
     heartRain();
 
 }
+// ================= PAGE 5 =================
+
+function deletePhoto(){
+
+    document.getElementById("deleteMsg").innerHTML =
+    "❌ Permission Denied!<br><br>Ye bhi meri favourite memory hai. 😂❤️";
+
+    document.getElementById("nextBtn").style.display = "inline-block";
+
+}
+
+function nextPhoto(){
+
+    // Funny photo ki jagah favourite photo
+    document.getElementById("surprisePhoto").src = "favorite.jpg.jpg";
+
+    // Text change
+    document.getElementById("funnyText").innerHTML =
+    "Bas mazaak kar raha tha... 😌<br><br>Sach kahun to... ye wali smile hi sabse dangerous hai. ❤️";
+
+    // Purana message hatao
+    document.getElementById("deleteMsg").innerHTML = "";
+
+    // Button hide
+    document.getElementById("nextBtn").style.display = "none";
+
+    // Loading animation
+    let percent = 0;
+
+    document.getElementById("loadingBox").innerHTML =
+    "🤖 Analyzing Beauty... 0%";
+
+    let timer = setInterval(function(){
+
+        percent += 10;
+
+        document.getElementById("loadingBox").innerHTML =
+        "🤖 Analyzing Beauty... " + percent + "%";
+
+        if(percent >= 100){
+
+            clearInterval(timer);
+
+            document.getElementById("loadingBox").innerHTML = `
+            ❌ <b>System Error</b><br><br>
+            Itni cuteness measure hi nahi ho sakti. 😂❤️
+            <br><br>
+            💖 Happy Friendship Day Janvii 💖
+            `;
+
+            heartRain();
+
+        }
+
+    },250);
+
+}
