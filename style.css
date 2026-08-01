@@ -264,3 +264,41 @@ margin-bottom:20px;
 margin:8px;
 width:140px;
 }
+/* ================= PAGE 5 ================= */
+
+#page5 .photo{
+    width:100%;
+    max-width:320px;
+    border-radius:18px;
+    box-shadow:0 10px 25px rgba(0,0,0,.25);
+    transition:all .6s ease;
+}
+
+#nextBtn,
+#page5 button{
+    margin-top:15px;
+}
+
+#loadingBox{
+    margin-top:20px;
+    font-size:18px;
+    font-weight:bold;
+    color:#ff4d88;
+    line-height:1.8;
+    animation:fadeIn .5s ease;
+}
+
+#beautySection{
+    animation:fadeIn .8s ease;
+}
+
+@keyframes fadeIn{
+    from{
+        opacity:0;
+        transform:translateY(20px);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
