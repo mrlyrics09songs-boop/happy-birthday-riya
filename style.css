@@ -6,26 +6,30 @@
 }
 
 body{
+    margin:0;
+    padding:0;
     background:linear-gradient(135deg,#ffb6d9,#ffd8ea,#fff5fa);
-    min-height:100vh;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    overflow:hidden;
-    padding:20px;
+    overflow-x:hidden;
+    overflow-y:hidden;
 }
 
 .page{
     width:100%;
-    display:flex;
+    min-height:100vh;
+    display:none;
     justify-content:center;
     align-items:center;
-    animation:fade .8s ease;
+    padding:20px;
+    animation:fade .6s ease;
+}
+
+#page1{
+    display:flex;
 }
 
 .card{
     width:100%;
-    max-width:420px;
+    max-width:430px;
     background:rgba(255,255,255,.95);
     padding:25px;
     border-radius:25px;
