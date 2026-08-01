@@ -5,9 +5,12 @@ function openLetter() {
         letter.style.display = "none";
     } else {
         letter.style.display = "block";
-        letter.scrollIntoView({
-            behavior: "smooth"
-        });
+
+        setTimeout(() => {
+            letter.scrollIntoView({
+                behavior: "smooth"
+            });
+        }, 200);
     }
 }
 
@@ -28,6 +31,16 @@ function checkAnswer() {
             alert("🏆 Achievement Unlocked!\n\nOfficially My Favourite Friend ❤️");
         }, 500);
 
+        // Memory Box tak auto scroll
+        setTimeout(() => {
+            const memory = document.querySelector(".memory");
+            if (memory) {
+                memory.scrollIntoView({
+                    behavior: "smooth"
+                });
+            }
+        }, 1200);
+
     } else {
 
         attempts++;
@@ -39,14 +52,16 @@ function checkAnswer() {
         } else {
             alert("🤣 Last Hint!\n\nApna naam try karo. ❤️");
         }
+
     }
+
 }
 
 function heartRain() {
 
     for (let i = 0; i < 50; i++) {
 
-        let heart = document.createElement("div");
+        const heart = document.createElement("div");
 
         heart.innerHTML = "💖";
 
@@ -68,9 +83,15 @@ function heartRain() {
         setTimeout(() => {
             heart.remove();
         }, 5000);
+
     }
 
 }
+
+/* ===========================
+   MEMORY BOX
+=========================== */
+
 const memoryImages = [
     "cat1.jpg",
     "cat2.jpg",
@@ -89,12 +110,14 @@ let currentMemory = 0;
 
 function openMemoryBox() {
 
-    document.getElementById("memoryBox").style.display = "block";
+    const box = document.getElementById("memoryBox");
+
+    box.style.display = "block";
 
     currentMemory = 0;
 
-    document.getElementById("catImg").src = memoryImages[currentMemory];
-    document.getElementById("catText").innerHTML = memoryTexts[currentMemory];
+    document.getElementById("catImg").src = memoryImages[0];
+    document.getElementById("catText").innerHTML = memoryTexts[0];
 
 }
 
@@ -102,27 +125,27 @@ function nextMemory() {
 
     currentMemory++;
 
-    if(currentMemory < memoryImages.length){
+    if (currentMemory < memoryImages.length) {
 
         document.getElementById("catImg").src = memoryImages[currentMemory];
         document.getElementById("catText").innerHTML = memoryTexts[currentMemory];
 
-    }else{
+    } else {
 
         document.getElementById("memoryBox").innerHTML = `
-            <h2>🎉 Friendship Verified ❤️</h2>
+            <h2>🏆 Friendship Verified ❤️</h2>
 
             <h3>██████████ 100%</h3>
 
             <p>
-            🏆 Congratulations Janvii!<br><br>
+                🎉 Congratulations Janvii!<br><br>
 
-            You are officially promoted to<br>
-            <b>Best Friend Forever ❤️</b><br><br>
+                You are officially promoted to<br>
+                <b>Best Friend Forever ❤️</b><br><br>
 
-            🍫 Unlimited Virtual Chocolates<br>
-            🤗 Unlimited Hugs<br>
-            😂 Lifetime Permission To Irritate Me
+                🍫 Unlimited Virtual Chocolates<br>
+                🤗 Unlimited Hugs<br>
+                😂 Lifetime Permission To Irritate Me
             </p>
 
             <button onclick="heartRain()">
