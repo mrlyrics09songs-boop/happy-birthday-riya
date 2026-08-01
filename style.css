@@ -21,15 +21,14 @@ body{
     box-shadow:0 10px 30px rgba(0,0,0,.2);
 }
 
-.photo{
-    width:100%;
-    max-width:300px;
-    height:auto;
-    object-fit:contain;
-    border:5px solid white;
-    border-radius:15px;
-    margin:20px auto;
+.card img{
+    width:80%;       /* Photo chhoti ho jayegi */
+    height:250px;
+    object-fit:cover;
     display:block;
+    margin:0 auto;   /* Center me aa jayegi */
+    border-radius:10px;
+}
 }
 
 button{
