@@ -71,3 +71,67 @@ function heartRain() {
     }
 
 }
+const memoryImages = [
+    "cat1.jpg",
+    "cat2.jpg",
+    "cat3.jpg",
+    "cat4.jpg"
+];
+
+const memoryTexts = [
+    "🥹 Me waiting for your reply be like...",
+    "😭 Finally notification aayi!!",
+    "😂 POV: Jab tum sirf 'hmm' reply karti ho.",
+    "🏆 Official Best Friend Detected ❤️"
+];
+
+let currentMemory = 0;
+
+function openMemoryBox() {
+
+    document.getElementById("memoryBox").style.display = "block";
+
+    currentMemory = 0;
+
+    document.getElementById("catImg").src = memoryImages[currentMemory];
+    document.getElementById("catText").innerHTML = memoryTexts[currentMemory];
+
+}
+
+function nextMemory() {
+
+    currentMemory++;
+
+    if(currentMemory < memoryImages.length){
+
+        document.getElementById("catImg").src = memoryImages[currentMemory];
+        document.getElementById("catText").innerHTML = memoryTexts[currentMemory];
+
+    }else{
+
+        document.getElementById("memoryBox").innerHTML = `
+            <h2>🎉 Friendship Verified ❤️</h2>
+
+            <h3>██████████ 100%</h3>
+
+            <p>
+            🏆 Congratulations Janvii!<br><br>
+
+            You are officially promoted to<br>
+            <b>Best Friend Forever ❤️</b><br><br>
+
+            🍫 Unlimited Virtual Chocolates<br>
+            🤗 Unlimited Hugs<br>
+            😂 Lifetime Permission To Irritate Me
+            </p>
+
+            <button onclick="heartRain()">
+                💖 Celebrate Again
+            </button>
+        `;
+
+        heartRain();
+
+    }
+
+}
