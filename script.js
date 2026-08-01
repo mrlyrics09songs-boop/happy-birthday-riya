@@ -1,3 +1,4 @@
+alert("Script Loaded");
 // ================= PAGE CHANGE =================
 
 function showPage(pageId){
