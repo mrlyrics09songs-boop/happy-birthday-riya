@@ -1,131 +1,174 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Happy Friendship Day 🌷</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
+<title>Happy Friendship Day ❤️</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
 <div class="hearts">
-    <span>💖</span>
-    <span>💕</span>
-    <span>🌸</span>
-    <span>❤️</span>
-    <span>💖</span>
+<span>💖</span>
+<span>💕</span>
+<span>🌸</span>
+<span>❤️</span>
+<span>💖</span>
 </div>
+
+<!-- PAGE 1 -->
+
+<section id="page1" class="page">
 
 <div class="card">
 
-    <h1>🌷 Happy Friendship Day 🌷</h1>
+<h1>🌷 Happy Friendship Day 🌷</h1>
 
-    <h2>Dear Janvii ❤️</h2>
+<h2>Dear Janvii ❤️</h2>
 
-    <img src="janvii.jpg.jpg" class="photo" alt="Janvii">
+<img src="janvii.jpg.jpg" class="photo">
 
-    <p class="quote">
-        Some people come into our lives as friends,
-        but a few become a beautiful part of our hearts.
-        <br><br>
-        Thank you for always being amazing. 💖
-    </p>
+<p class="quote">
 
-    <button onclick="openLetter()">
-        💌 Open My Letter
-    </button>
+Some people become friends...
 
-    <div id="letter" class="letter" style="display:none;">
+Some become family...❤️
 
-        <h2>💖 A Special Message 💖</h2>
+And you became my favourite person to annoy. 😂
 
-        <p>
-            Dear Janvii ❤️<br><br>
+</p>
 
-            Happy Friendship Day! 🌷<br><br>
+<button onclick="showPage('page2')">
 
-            Thank you for always being such an amazing friend.
-            Your smile makes every day brighter, your kindness makes life beautiful,
-            and your friendship means a lot to me. 💕
+💌 Open My Letter
 
-            <br><br>
-
-            I wish you endless happiness, success and beautiful memories.
-
-            <br><br>
-
-            🌸 Stay Happy Always 🌸
-        </p>
-
-        <hr style="margin:20px 0;border:none;border-top:2px dashed #ff8db3;">
-
-        <div class="game">
-
-            <h2>🤫 Secret Friendship Challenge</h2>
-
-            <p>Last challenge! Agar tum mujhe itna jaanti ho... 😏</p>
-
-            <h3>❓ Question</h3>
-
-            <p>Meri favourite friend ka naam kya hai? ❤️</p>
-
-            <input type="text" id="answer" placeholder="Type your answer...">
-
-            <br><br>
-
-            <button onclick="checkAnswer()">
-                🔓 Unlock Secret
-            </button>
-
-            <p id="secret" style="display:none;">
-                🎉 Yayyy!! Correct Answer ❤️<br><br>
-
-                Mujhe pata tha tum sahi answer hi dogi. 🤭💕<br><br>
-
-                Thank you for always making me smile.<br><br>
-
-                🌸 Aur haan... duniya ki best friend sirf <b>Janvii</b> hi hai. ❤️
-            </p>
-
-        </div>
-
-        <hr style="margin:25px 0;border:none;border-top:2px dashed #ff8db3;">
-
-        <div class="memory">
-
-            <h2>📦 Memory Box</h2>
-
-            <p>
-                Congratulations! ❤️<br>
-                Ek aur surprise baaki hai... 😄
-            </p>
-
-            <button onclick="openMemoryBox()">
-                📦 Open Memory Box
-            </button>
-
-            <div id="memoryBox" style="display:none;">
-
-                <img id="catImg" src="cat1.jpg" class="memory-photo" alt="Funny Cat">
-
-                <p id="catText">
-                    🥹 Me waiting for your reply be like...
-                </p>
-
-                <button onclick="nextMemory()">
-                    ➜ Next
-                </button>
-
-            </div>
-
-        </div>
-
-    </div>
+</button>
 
 </div>
+
+</section>
+
+<!-- PAGE 2 -->
+
+<section id="page2" class="page" style="display:none;">
+
+<div class="card">
+
+<h2>💌 A Letter For You</h2>
+
+<p>
+
+Dear Janvii ❤️
+
+<br><br>
+
+Happy Friendship Day 🌸
+
+<br><br>
+
+Thank you for always being such an amazing friend.
+
+Your smile makes every day brighter.
+
+Your kindness makes life beautiful.
+
+And your friendship means a lot to me.
+
+❤️
+
+<br><br>
+
+I hope we always stay like this...
+
+Laughing...
+
+Fighting...
+
+Annoying each other...
+
+and making beautiful memories forever.
+
+🤍
+
+</p>
+
+<button onclick="showPage('page3')">
+
+➡ Continue
+
+</button>
+
+</div>
+
+</section>
+<!-- PAGE 3 -->
+
+<section id="page3" class="page" style="display:none;">
+
+<div class="card">
+
+<h2>🤫 Secret Friendship Challenge</h2>
+
+<p>
+Agar tum mujhe itna jaanti ho... 😏
+</p>
+
+<p>
+❓ Meri favourite friend ka naam kya hai?
+</p>
+
+<input type="text" id="answer" placeholder="Type here...">
+
+<br><br>
+
+<button onclick="checkAnswer()">
+🔓 Unlock
+</button>
+
+<p id="secret" style="display:none;color:#d81b60;font-weight:bold;margin-top:20px;">
+
+🎉 Yayyy!! Correct ❤️
+
+Mujhe pata tha tum sahi answer hi dogi. 🤭
+
+</p>
+
+<div id="memorySection" style="display:none;">
+
+<hr style="margin:25px 0;">
+
+<h2>📦 Memory Box</h2>
+
+<p>
+Ready for some funny memories? 😂
+</p>
+
+<button onclick="openMemoryBox()">
+📦 Open Memory Box
+</button>
+
+<div id="memoryBox" style="display:none;">
+
+<img id="catImg" class="memory-photo" src="cat1.jpg.JPG">
+
+<p id="catText"></p>
+
+<button onclick="nextMemory()">
+➡ Next
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
 
 <script src="script.js"></script>
 
