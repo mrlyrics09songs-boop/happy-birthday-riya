@@ -1,23 +1,81 @@
+// ---------- PAGE CHANGE ----------
+
 function showPage(pageId){
 
-    const pages = document.querySelectorAll(".page");
-
-    pages.forEach(page=>{
-        page.style.opacity="0";
-        page.style.transform="translateX(60px)";
+    document.querySelectorAll(".page").forEach(page=>{
         page.style.display="none";
     });
 
-    const next = document.getElementById(pageId);
+    const next=document.getElementById(pageId);
 
     next.style.display="flex";
 
-    setTimeout(()=>{
-        next.style.opacity="1";
-        next.style.transform="translateX(0)";
-    },50);
+    window.scrollTo({
+        top:0,
+        behavior:"smooth"
+    });
+
+    if(pageId==="page2"){
+        typeLetter();
+    }
 
 }
+
+// ---------- LETTER TYPING ----------
+
+const letterMessage=`Dear Janvii ❤️
+
+Happy Friendship Day 🌸
+
+Thank you for always being such an amazing friend.
+
+Your smile makes every day brighter.
+
+Your kindness makes life beautiful.
+
+And your friendship means a lot to me. ❤️
+
+I hope we always stay like this...
+
+Laughing...
+Fighting...
+Annoying each other...
+
+and making beautiful memories forever. 🤍`;
+
+function typeLetter(){
+
+    const box=document.getElementById("letterText");
+
+    if(!box) return;
+
+    box.innerHTML="";
+
+    let i=0;
+
+    const timer=setInterval(()=>{
+
+        if(i<letterMessage.length){
+
+            if(letterMessage[i]=="\n"){
+                box.innerHTML+="<br>";
+            }else{
+                box.innerHTML+=letterMessage[i];
+            }
+
+            i++;
+
+        }else{
+
+            clearInterval(timer);
+
+        }
+
+    },30);
+
+}
+
+// ---------- SECRET CHALLENGE ----------
 
 let attempts=0;
 
@@ -37,11 +95,11 @@ function checkAnswer(){
 
         attempts++;
 
-        if(attempts==1){
+        if(attempts===1){
 
             alert("❌ Wrong!\n\nHint: Naam J se start hota hai 😜");
 
-        }else if(attempts==2){
+        }else if(attempts===2){
 
             alert("😂 Arre yaar...\n\nHint: Apna naam try karo ❤️");
 
@@ -54,6 +112,8 @@ function checkAnswer(){
     }
 
 }
+
+// ---------- MEMORY BOX ----------
 
 const memoryImages=[
 "cat1.jpg.JPG",
@@ -77,9 +137,9 @@ function openMemoryBox(){
 
     current=0;
 
-    document.getElementById("catImg").src=memoryImages[0];
+    document.getElementById("catImg").src=memoryImages[current];
 
-    document.getElementById("catText").innerHTML=memoryTexts[0];
+    document.getElementById("catText").innerHTML=memoryTexts[current];
 
 }
 
@@ -104,19 +164,12 @@ function nextMemory(){
 <p>
 
 You have successfully completed
-
 the Friendship Challenge 💖
 
 <br><br>
 
-🍫 Unlimited Chocolates
-
-<br>
-
-🤗 Unlimited Hugs
-
-<br>
-
+🍫 Unlimited Chocolates<br>
+🤗 Unlimited Hugs<br>
 😂 Lifetime Permission To Irritate Me
 
 <br><br>
@@ -126,9 +179,7 @@ Thank You For Being The Best Friend Ever ❤️
 </p>
 
 <button onclick="heartRain()">
-
 💖 Celebrate Again
-
 </button>
 
 `;
@@ -139,6 +190,8 @@ Thank You For Being The Best Friend Ever ❤️
 
 }
 
+// ---------- HEART RAIN ----------
+
 function heartRain(){
 
     for(let i=0;i<40;i++){
@@ -148,16 +201,11 @@ function heartRain(){
         heart.innerHTML="💖";
 
         heart.style.position="fixed";
-
         heart.style.left=Math.random()*100+"vw";
-
         heart.style.top="-40px";
-
         heart.style.fontSize=(20+Math.random()*20)+"px";
-
         heart.style.zIndex="9999";
-
-        heart.style.transition="5s linear";
+        heart.style.transition="transform 5s linear, opacity 5s";
 
         document.body.appendChild(heart);
 
@@ -166,7 +214,7 @@ function heartRain(){
             heart.style.transform="translateY(110vh)";
             heart.style.opacity="0";
 
-        },100);
+        },50);
 
         setTimeout(()=>{
 
