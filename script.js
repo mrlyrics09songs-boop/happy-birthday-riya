@@ -1,14 +1,14 @@
-// ---------- PAGE CHANGE ----------
+// ---------------- PAGE CHANGE ----------------
+
+const pages = document.querySelectorAll(".page");
 
 function showPage(pageId){
 
-    document.querySelectorAll(".page").forEach(page=>{
-        page.style.display="none";
+    pages.forEach(page=>{
+        page.classList.remove("active");
     });
 
-    const next=document.getElementById(pageId);
-
-    next.style.display="flex";
+    document.getElementById(pageId).classList.add("active");
 
     window.scrollTo({
         top:0,
@@ -21,7 +21,7 @@ function showPage(pageId){
 
 }
 
-// ---------- LETTER TYPING ----------
+// ---------------- LETTER ----------------
 
 const letterMessage=`Dear Janvii ❤️
 
@@ -43,34 +43,40 @@ Annoying each other...
 
 and making beautiful memories forever. 🤍`;
 
+let typed=false;
+
 function typeLetter(){
 
-    const box = document.getElementById("letterText");
+    if(typed) return;
 
-    if(!box) return;
+    typed=true;
 
-    box.innerHTML = "";
-    let i = 0;
+    const box=document.getElementById("letterText");
 
-    const timer = setInterval(() => {
+    let i=0;
 
-        if(i >= letterMessage.length){
+    box.innerHTML="";
+
+    const timer=setInterval(()=>{
+
+        if(i>=letterMessage.length){
             clearInterval(timer);
             return;
         }
 
-        box.textContent += letterMessage.charAt(i);
+        if(letterMessage.charAt(i)==="\n"){
+            box.innerHTML+="<br>";
+        }else{
+            box.innerHTML+=letterMessage.charAt(i);
+        }
+
         i++;
 
     },30);
 
 }
 
-    },30);
-
-}
-
-// ---------- SECRET CHALLENGE ----------
+// ---------------- SECRET GAME ----------------
 
 let attempts=0;
 
@@ -91,30 +97,23 @@ function checkAnswer(){
         attempts++;
 
         if(attempts===1){
-
-            alert("❌ Wrong!\n\nHint: Naam J se start hota hai 😜");
-
+            alert("❌ Hint: Naam J se start hota hai 😜");
         }else if(attempts===2){
-
-            alert("😂 Arre yaar...\n\nHint: Apna naam try karo ❤️");
-
+            alert("😂 Hint: Apna naam try karo ❤️");
         }else{
-
-            alert("🤣 Last Hint!\n\nBest Friend = Janvii ❤️");
-
+            alert("🤣 Best Friend = Janvii ❤️");
         }
 
     }
 
 }
-
-// ---------- MEMORY BOX ----------
+// ---------------- MEMORY BOX ----------------
 
 const memoryImages=[
-"cat1.jpg.JPG",
-"cat2.jpg.JPG",
-"cat3.jpg.JPG",
-"cat4.jpg.JPG"
+"cat1.jpg",
+"cat2.jpg",
+"cat3.jpg",
+"cat4.jpg"
 ];
 
 const memoryTexts=[
@@ -124,60 +123,31 @@ const memoryTexts=[
 "🏆 Official Best Friend Detected ❤️"
 ];
 
-let current=0;
+let currentMemory=0;
 
 function openMemoryBox(){
 
     document.getElementById("memoryBox").style.display="block";
 
-    current=0;
+    currentMemory=0;
 
-    document.getElementById("catImg").src=memoryImages[current];
-
-    document.getElementById("catText").innerHTML=memoryTexts[current];
+    document.getElementById("catImg").src=memoryImages[currentMemory];
+    document.getElementById("catText").innerHTML=memoryTexts[currentMemory];
 
 }
 
 function nextMemory(){
 
-    current++;
+    currentMemory++;
 
-    if(current<memoryImages.length){
+    if(currentMemory < memoryImages.length){
 
-        document.getElementById("catImg").src=memoryImages[current];
-
-        document.getElementById("catText").innerHTML=memoryTexts[current];
+        document.getElementById("catImg").src=memoryImages[currentMemory];
+        document.getElementById("catText").innerHTML=memoryTexts[currentMemory];
 
     }else{
 
-        document.querySelector(".card").innerHTML=`
-
-<h1>🏆 Friendship Verified ❤️</h1>
-
-<h2>Congratulations Janvii 🎉</h2>
-
-<p>
-
-You have successfully completed
-the Friendship Challenge 💖
-
-<br><br>
-
-🍫 Unlimited Chocolates<br>
-🤗 Unlimited Hugs<br>
-😂 Lifetime Permission To Irritate Me
-
-<br><br>
-
-Thank You For Being The Best Friend Ever ❤️
-
-</p>
-
-<button onclick="heartRain()">
-💖 Celebrate Again
-</button>
-
-`;
+        showPage("page4");
 
         heartRain();
 
@@ -185,7 +155,7 @@ Thank You For Being The Best Friend Ever ❤️
 
 }
 
-// ---------- HEART RAIN ----------
+// ---------------- HEART RAIN ----------------
 
 function heartRain(){
 
@@ -198,8 +168,9 @@ function heartRain(){
         heart.style.position="fixed";
         heart.style.left=Math.random()*100+"vw";
         heart.style.top="-40px";
-        heart.style.fontSize=(20+Math.random()*20)+"px";
+        heart.style.fontSize=(18+Math.random()*20)+"px";
         heart.style.zIndex="9999";
+        heart.style.pointerEvents="none";
         heart.style.transition="transform 5s linear, opacity 5s";
 
         document.body.appendChild(heart);
