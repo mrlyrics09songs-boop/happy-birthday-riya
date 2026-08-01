@@ -360,3 +360,56 @@ function nextPhoto(){
     },250);
 
 }
+// ================= PAGE 5 =================
+
+function deletePhoto(){
+
+    document.getElementById("deleteMsg").innerHTML =
+    "❌ Permission Denied!<br><br>Ye bhi meri favourite memory hai. 😂❤️";
+
+    document.getElementById("nextBtn").style.display = "inline-block";
+
+}
+
+function nextPhoto(){
+
+    // Funny photo hide
+    document.getElementById("surprisePhoto").style.display = "none";
+
+    // Funny text change
+    document.getElementById("funnyText").innerHTML =
+    "Bas mazaak kar raha tha... 😌<br><br>Sach kahun to... ye wali smile hi sabse dangerous hai. ❤️";
+
+    // Show favourite section
+    document.getElementById("beautySection").style.display = "block";
+
+    // Hide buttons
+    document.getElementById("deleteMsg").innerHTML = "";
+    document.getElementById("nextBtn").style.display = "none";
+
+    let percent = 0;
+
+    document.getElementById("loadingBox").innerHTML =
+    "🤖 Analyzing Beauty... 0%";
+
+    let timer = setInterval(function(){
+
+        percent += 10;
+
+        document.getElementById("loadingBox").innerHTML =
+        "🤖 Analyzing Beauty... " + percent + "%";
+
+        if(percent >= 100){
+
+            clearInterval(timer);
+
+            document.getElementById("loadingBox").innerHTML =
+            "❌ <b>System Error</b><br><br>Itni cuteness measure hi nahi ho sakti. 😂❤️<br><br>💖 Happy Friendship Day Janvii 💖";
+
+            heartRain();
+
+        }
+
+    },250);
+
+}
