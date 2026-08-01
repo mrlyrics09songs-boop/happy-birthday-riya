@@ -20,7 +20,17 @@ body{
     justify-content:center;
     align-items:center;
     padding:20px;
-    animation:fade .6s ease;
+
+    opacity:0;
+    transform:translateX(60px);
+
+    transition:all .6s ease;
+}
+
+#page1{
+    display:flex;
+    opacity:1;
+    transform:translateX(0);
 }
 
 #page1{
