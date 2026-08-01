@@ -303,3 +303,4 @@ Warna ye voice note lifetime evidence banke rahega. 😂💖
     heartRain();
 
 }
+console.log("Script Loaded");
