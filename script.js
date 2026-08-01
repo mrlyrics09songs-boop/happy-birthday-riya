@@ -204,3 +204,102 @@ function heartRain(){
     }
 
 }
+// ===== WARNING POPUP =====
+
+function showWarning(){
+
+    document.getElementById("warningBox").style.display="flex";
+
+}
+
+function closeWarning(){
+
+    document.getElementById("warningBox").style.display="none";
+
+}
+
+function playVoice(){
+
+    closeWarning();
+
+    const audio=document.getElementById("voice");
+
+    audio.play();
+
+    audio.onended=function(){
+
+        showEnding();
+
+    };
+
+}
+
+function showEnding(){
+
+    document.querySelector("#page4 .card").innerHTML=`
+
+<h1>😂 Dekha...</h1>
+
+<p>
+
+Aaj bhi ye recording utni hi funny lagti hai.
+
+<br><br>
+
+Aur haan...
+
+<br><br>
+
+Setting ki responsibility aaj bhi tumne nahi li. 🤣
+
+<br><br>
+
+Lekin...
+
+<br><br>
+
+Tum jaisi ek achchi dost milna...
+
+<br><br>
+
+Ye meri life ki sabse achchi cheezon me se ek hai. ❤️🌸
+
+<br><br>
+
+Log milte bahut hain...
+
+<br>
+
+Par kuch hi log yaad ban jaate hain.
+
+<br><br>
+
+Thank you for being one of those people.
+
+<br><br>
+
+Happy Friendship Day, Janvii. 🤍
+
+<br><br>
+
+Aur haan...
+
+<br><br>
+
+Kabhi mujhe bhoolna mat...
+
+<br><br>
+
+Warna ye voice note lifetime evidence banke rahega. 😂💖
+
+</p>
+
+<button onclick="heartRain()">
+💖 Celebrate Again
+</button>
+
+`;
+
+    heartRain();
+
+}
